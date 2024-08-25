@@ -9,4 +9,5 @@ import (
 func InitInvoiceRouter(e *echo.Echo) {
 	handler := di.InjectInvoiceHandler()
 	e.POST("/api/invoices", handler.Create())
+	e.GET("/api/invoices", handler.Get())
 }
