@@ -22,7 +22,11 @@ func NewInvoiceHandler(usecase usecase.InvoiceUsecase) InvoiceHandler {
 
 func (t *invoiceHandler) Create() echo.HandlerFunc {
 	return func(c echo.Context) error {
-		if err := t.usecase.Create(); err != nil {
+		req := new(usecase.InvoiceCreateReq)
+		if err := c.Bind(req); err != nil {
+			return c.JSON(http.StatusBadRequest, err)
+		}
+		if err := t.usecase.Create(req); err != nil {
 			return c.JSON(http.StatusBadRequest, err)
 		}
 		return c.JSON(http.StatusOK, nil)
