@@ -9,7 +9,7 @@
 ## test
 
 - 以下コマンドで簡単なe2eテストが可能
-- テストけーしゃe2e_test.go参照
+- テストケースはe2e_test.go参照
 
 ```
 go test -v
