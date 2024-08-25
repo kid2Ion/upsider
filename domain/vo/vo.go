@@ -46,3 +46,18 @@ func (t InvoiceStatus) String() string {
 		return "不明"
 	}
 }
+
+func (t InvoiceStatus) Int() int {
+	switch t {
+	case InvoiceStatusUnprocessed:
+		return 0
+	case InvoiceStatusProcessing:
+		return 1
+	case InvoiceStatusPaid:
+		return 2
+	case InvoiceStatusError:
+		return 3
+	default:
+		return 4
+	}
+}

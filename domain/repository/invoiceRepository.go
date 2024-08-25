@@ -7,6 +7,6 @@ import "upsider/domain/entity"
 type (
 	// InvoiceRepository は請求書データ操作を抽象化します。
 	InvoiceRepository interface {
-		Create(*entity.Invoice) error
+		Create(req *entity.Invoice) error
 	}
 )
